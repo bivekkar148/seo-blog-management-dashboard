@@ -1,0 +1,346 @@
+/* =========================================
+   PUBLISHING CALENDAR
+========================================= */
+
+#calendar {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   CALENDAR HEADER
+========================================= */
+
+#calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 0 5px;
+}
+
+#calendar-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#calendar-header button {
+    min-width: 110px;
+}
+
+
+/* =========================================
+   CALENDAR GRID
+========================================= */
+
+#calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+
+/* =========================================
+   DAY NAMES
+========================================= */
+
+.calendar-day-name {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f3f4f6;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #374151;
+
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* Remove right border from last column */
+
+.calendar-day-name:nth-child(7n) {
+    border-right: none;
+}
+
+
+/* =========================================
+   CALENDAR DAY
+========================================= */
+
+.calendar-day {
+    min-height: 120px;
+
+    padding: 10px;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: background 0.15s ease;
+}
+
+
+/* Remove right border from last column */
+
+.calendar-day:nth-child(7n) {
+    border-right: none;
+}
+
+
+/* Hover */
+
+.calendar-day:not(.empty):hover {
+    background: #f8fafc;
+}
+
+
+/* =========================================
+   EMPTY DAY
+========================================= */
+
+.calendar-day.empty {
+    background: #f9fafb;
+}
+
+
+/* =========================================
+   DATE NUMBER
+========================================= */
+
+.calendar-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #374151;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   TODAY
+========================================= */
+
+.calendar-day.today {
+    background: #f5f3ff;
+}
+
+.calendar-day.today .calendar-date {
+    background: #7c3aed;
+    color: #ffffff;
+}
+
+
+/* =========================================
+   BLOG EVENT
+========================================= */
+
+.blog-event {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 6px 8px;
+
+    border-radius: 6px;
+
+    background: #7c3aed;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   UPCOMING BLOGS
+========================================= */
+
+#upcomingBlogs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#upcomingBlogs .recent-blog-item {
+    padding: 16px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+}
+
+#upcomingBlogs .recent-blog-item h3 {
+    margin: 0 0 8px;
+
+    font-size: 16px;
+}
+
+#upcomingBlogs .recent-blog-item p {
+    margin: 5px 0;
+
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .calendar-day {
+        min-height: 105px;
+        padding: 8px;
+    }
+
+    .blog-event {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    #calendar {
+        overflow-x: auto;
+    }
+
+    #calendarDays {
+        min-width: 700px;
+    }
+
+    .calendar-day {
+        min-height: 100px;
+    }
+
+    #calendar-header {
+        min-width: 700px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    #calendar-header h2 {
+        font-size: 20px;
+    }
+
+    #calendar-header button {
+        min-width: 95px;
+    }
+
+}
+/* =========================================
+   CALENDAR COLOR REFRESH
+   ========================================= */
+
+#calendarDays {
+    border-color: #d8cdbd;
+    background: #fffdf8;
+    box-shadow: 0 10px 24px rgba(55,48,35,.06);
+}
+
+.calendar-day-name {
+    background: #30473e;
+    color: #fffaf0;
+    border-color: #30473e;
+    letter-spacing: .3px;
+}
+
+.calendar-day {
+    background: #fffdf8;
+    border-color: #e4dacb;
+}
+
+.calendar-day:not(.empty):hover {
+    background: #fbf4e8;
+}
+
+.calendar-day.empty {
+    background: #f0e9dc;
+}
+
+.calendar-date {
+    color: #46534c;
+}
+
+.calendar-day.today {
+    background: #f2e7bf;
+}
+
+.calendar-day.today .calendar-date {
+    background: #b85c3c;
+    color: #fffaf0;
+}
+
+.blog-event {
+    background: #39736d;
+    color: #fffaf0;
+    border-left: 4px solid #c89a32;
+}
+
+.blog-event:hover {
+    background: #2f625d;
+}
+
+#upcomingBlogs .recent-blog-item {
+    background: #fffdf8;
+    border-color: #ded6c8;
+    box-shadow: 0 8px 20px rgba(55,48,35,.05);
+}
